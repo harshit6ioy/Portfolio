@@ -21,33 +21,33 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 md:py-24 bg-white dark:bg-slate-900/50">
+    <section id="skills" className="py-16 md:py-24 bg-neutral-50 dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white mb-6">
             Technical Skills
           </h2>
-          <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+          <div className="w-12 h-1 bg-neutral-900 dark:bg-white mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow"
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-white dark:bg-[#0a0a0a] rounded-2xl p-8 shadow-sm hover:shadow-md border border-neutral-200 dark:border-neutral-800 transition-all"
             >
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-6 tracking-tight">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map(skill => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium border border-slate-200 dark:border-slate-600"
+                    className="px-4 py-2 bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-lg text-sm font-medium transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-800"
                   >
                     {skill}
                   </span>

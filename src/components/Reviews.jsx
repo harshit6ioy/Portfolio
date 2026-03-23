@@ -1,96 +1,73 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export default function Reviews() {
-  const [rating, setRating] = useState(5);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const name = formData.get('name');
     const email = formData.get('email');
-    const review = formData.get('review');
+    const message = formData.get('message');
     
-    // Construct email body with line breaks
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRating: ${rating} Stars\n\nReview:\n${review}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     
-    // Trigger web-based Gmail client directly! No local mail app required.
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aggarwalharshit865@gmail.com&su=New+Portfolio+Review+from+${encodeURIComponent(name)}&body=${body}`, '_blank');
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aggarwalharshit865@gmail.com&su=New+Contact+from+${encodeURIComponent(name)}&body=${body}`, '_blank');
   };
 
   return (
-    <section id="reviews" className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/30">
+    <section id="contact" className="py-16 md:py-32 bg-white dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Leave a Review
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white mb-6">
+            Contact Me
           </h2>
-          <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+          <div className="w-12 h-1 bg-neutral-900 dark:bg-white mx-auto" />
         </div>
 
-        <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+        <div className="max-w-2xl mx-auto bg-neutral-50 dark:bg-neutral-900/50 rounded-3xl p-8 md:p-12 border border-neutral-200 dark:border-neutral-800 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Name</label>
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2 tracking-wide">Name</label>
                 <input 
                   type="text" 
                   name="name" 
                   required 
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white focus:ring-1 focus:ring-neutral-900 dark:focus:ring-white outline-none transition-all placeholder:text-neutral-400"
                   placeholder="Your Name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2 tracking-wide">Email</label>
                 <input 
                   type="email" 
                   name="email" 
                   required 
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  className="w-full px-5 py-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white focus:ring-1 focus:ring-neutral-900 dark:focus:ring-white outline-none transition-all placeholder:text-neutral-400"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Rating</label>
-              <div className="flex space-x-2">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    type="button"
-                    onClick={() => setRating(star)}
-                    className="focus:outline-none transition-transform hover:scale-110"
-                  >
-                    <Star 
-                      className={`w-8 h-8 ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300 dark:text-slate-600'}`} 
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Your Feedback</label>
+              <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2 tracking-wide">Message</label>
               <textarea 
-                name="review" 
+                name="message" 
                 required 
-                rows="4"
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"
-                placeholder="Write your thoughts here..."
+                rows="5"
+                className="w-full px-5 py-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-white focus:ring-1 focus:ring-neutral-900 dark:focus:ring-white outline-none transition-all resize-none placeholder:text-neutral-400"
+                placeholder="How can I help you?"
               ></textarea>
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
               type="submit"
-              className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl flex items-center justify-center space-x-2 transition-colors shadow-md"
+              className="w-full py-4 mt-4 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-bold tracking-wide rounded-xl flex items-center justify-center space-x-2 transition-colors hover:bg-neutral-800 dark:hover:bg-neutral-200"
             >
-              <span>Send Review in Gmail</span>
+              <span>Send Message</span>
               <Send className="w-5 h-5 ml-2" />
             </motion.button>
           </form>

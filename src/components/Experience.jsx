@@ -50,13 +50,13 @@ const achievements = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-24 bg-white dark:bg-slate-900/50">
+    <section id="experience" className="py-16 md:py-32 bg-neutral-50 dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white mb-6">
             Background & Experience
           </h2>
-          <div className="w-20 h-1.5 bg-blue-600 mx-auto rounded-full" />
+          <div className="w-12 h-1 bg-neutral-900 dark:bg-white mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -69,21 +69,21 @@ export default function Experience() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center space-x-3 mb-8">
-              <Briefcase className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Training</h3>
+              <Briefcase className="w-8 h-8 text-neutral-900 dark:text-white" />
+              <h3 className="text-2xl font-bold text-neutral-900 dark:text-white tracking-tight">Training</h3>
             </div>
             <div className="space-y-8">
               {training.map((item, idx) => (
-                <div key={idx} className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-700">
-                  <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1" />
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white">{item.role}</h4>
-                  <div className="text-sm text-slate-500 dark:text-slate-400 font-medium mb-3 mt-1">
+                <div key={idx} className="relative pl-8 border-l border-neutral-200 dark:border-neutral-800">
+                  <div className="absolute w-3 h-3 bg-neutral-900 dark:bg-white rounded-full -left-[6.5px] top-1.5" />
+                  <h4 className="text-xl font-bold text-neutral-900 dark:text-white">{item.role}</h4>
+                  <div className="text-sm text-neutral-500 dark:text-neutral-400 font-medium mb-3 mt-1">
                     {item.company} | {item.duration}
                   </div>
-                  <ul className="space-y-2 text-slate-600 dark:text-slate-300">
+                  <ul className="space-y-2 text-neutral-600 dark:text-neutral-300">
                     {item.bullets.map((bullet, i) => (
-                      <li key={i} className="flex">
-                        <span className="mr-2 text-blue-500">•</span>
+                      <li key={i} className="flex leading-relaxed">
+                        <span className="mr-3 text-neutral-400 dark:text-neutral-600">—</span>
                         {bullet}
                       </li>
                     ))}
@@ -101,18 +101,18 @@ export default function Experience() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center space-x-3 mb-8">
-              <GraduationCap className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Education</h3>
+              <GraduationCap className="w-8 h-8 text-neutral-900 dark:text-white" />
+              <h3 className="text-2xl font-bold text-neutral-900 dark:text-white tracking-tight">Education</h3>
             </div>
             <div className="space-y-8">
               {education.map((item, idx) => (
-                <div key={idx} className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-700">
-                  <div className="absolute w-4 h-4 bg-emerald-500 rounded-full -left-[9px] top-1" />
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white">{item.degree}</h4>
-                  <div className="text-sm font-medium text-slate-600 dark:text-slate-300 mt-1">
+                <div key={idx} className="relative pl-8 border-l border-neutral-200 dark:border-neutral-800">
+                  <div className="absolute w-3 h-3 bg-neutral-900 dark:bg-white rounded-full -left-[6.5px] top-1.5" />
+                  <h4 className="text-xl font-bold text-neutral-900 dark:text-white">{item.degree}</h4>
+                  <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400 mt-1">
                     {item.institution}
                   </div>
-                  <div className="text-sm text-emerald-600 dark:text-emerald-400 mb-2 font-medium">
+                  <div className="text-sm text-neutral-500 dark:text-neutral-500 mb-2 font-medium">
                     {item.score} {item.timeline && ` | ${item.timeline}`}
                   </div>
                 </div>
@@ -129,15 +129,15 @@ export default function Experience() {
             className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mt-4"
           >
             {/* Achievements */}
-            <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
-              <div className="flex items-center space-x-3 mb-6">
-                <Award className="w-6 h-6 text-yellow-500" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Achievements</h3>
+            <div className="bg-white dark:bg-[#0a0a0a] rounded-3xl p-8 md:p-10 border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="flex items-center space-x-3 mb-8">
+                <Award className="w-6 h-6 text-neutral-900 dark:text-white" />
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-white tracking-tight">Achievements</h3>
               </div>
               <ul className="space-y-4">
                 {achievements.map((item, i) => (
-                  <li key={i} className="flex items-start text-slate-700 dark:text-slate-300 font-medium">
-                    <span className="text-yellow-500 mr-3">❖</span>
+                  <li key={i} className="flex items-start text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
+                    <span className="text-neutral-400 dark:text-neutral-600 mr-3">—</span>
                     {item}
                   </li>
                 ))}
@@ -145,17 +145,17 @@ export default function Experience() {
             </div>
             
             {/* Certifications */}
-            <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700">
-              <div className="flex items-center space-x-3 mb-6">
-                <Award className="w-6 h-6 text-purple-500" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Certifications</h3>
+            <div className="bg-white dark:bg-[#0a0a0a] rounded-3xl p-8 md:p-10 border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="flex items-center space-x-3 mb-8">
+                <Award className="w-6 h-6 text-neutral-900 dark:text-white" />
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-white tracking-tight">Certifications</h3>
               </div>
-              <ul className="space-y-4 text-slate-700 dark:text-slate-300">
+              <ul className="space-y-4 text-neutral-600 dark:text-neutral-300">
                 {certifications.map((item, i) => (
-                  <li key={i} className="flex items-start font-medium">
-                    <span className="text-purple-500 mr-3">❖</span>
+                  <li key={i} className="flex items-start font-medium leading-relaxed">
+                    <span className="text-neutral-400 dark:text-neutral-600 mr-3">—</span>
                     {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors">
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-white underline decoration-neutral-200 dark:decoration-neutral-800 underline-offset-4 transition-colors">
                         {item.name}
                       </a>
                     ) : (
