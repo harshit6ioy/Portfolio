@@ -1,28 +1,33 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 @layer base {
   :root {
-    --bg-primary: #F9F6C4;
-    --bg-secondary: #FE9EC7;
-    --text-primary: #44ACFF;
-    --text-secondary: #89D4FF;
-    --accent: #44ACFF;
-    --border-color: #FE9EC7;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f9ff;
+    --text-primary: #0369a1;
+    --text-secondary: #38bdf8;
+    --accent: #0ea5e9;
+    --border-color: #bae6fd;
   }
+
   .dark {
-    --bg-primary: #222831;
-    --bg-secondary: #393E46;
-    --text-primary: #DFD0B8;
-    --text-secondary: #948979;
-    --accent: #DFD0B8;
-    --border-color: #393E46;
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --accent: #0ea5e9;
+    --border-color: #374151;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: color 0.3s, background-color 0.3s;
   }
 }
