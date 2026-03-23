@@ -17,7 +17,7 @@ export default function Reviews() {
 
         <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
           <form 
-            action="https://formsubmit.co/harshitaggarwal865@gmail.com" 
+            action="https://formsubmit.co/aggarwalharshit856@gmail.com" 
             method="POST" 
             className="space-y-6"
           >
