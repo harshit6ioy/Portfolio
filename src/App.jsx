@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <a href="#skills" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
                 <a href="#projects" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
                 <a href="#experience" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
+                <a href="#reviews" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Reviews</a>
               </div>
               <button
                 onClick={() => setDarkMode(!darkMode)}
@@ -48,6 +50,7 @@ function App() {
         <Skills />
         <Projects />
         <Experience />
+        <Reviews />
       </main>
 
       <Footer />
