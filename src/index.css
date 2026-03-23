@@ -3,13 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-primary: #F9F6C4;
+    --bg-secondary: #FE9EC7;
+    --text-primary: #44ACFF;
+    --text-secondary: #89D4FF;
+    --accent: #44ACFF;
+    --border-color: #FE9EC7;
+  }
+  .dark {
+    --bg-primary: #222831;
+    --bg-secondary: #393E46;
+    --text-primary: #DFD0B8;
+    --text-secondary: #948979;
+    --accent: #DFD0B8;
+    --border-color: #393E46;
+  }
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-neutral-50 text-neutral-900 transition-colors duration-300;
-  }
-  .dark body {
-    @apply bg-[#0a0a0a] text-neutral-50;
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300;
   }
 }
