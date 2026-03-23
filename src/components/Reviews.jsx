@@ -5,20 +5,6 @@ import { Star, Send } from 'lucide-react';
 export default function Reviews() {
   const [rating, setRating] = useState(5);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const review = formData.get('review');
-    
-    // Construct email body with line breaks
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ARating: ${rating} Stars%0D%0A%0D%0AReview:%0D%0A${review}`;
-    
-    // Trigger mail client to send email securely
-    window.location.href = `mailto:harshitaggarwal865@gmail.com?subject=New Portfolio Review from ${name}&body=${body}`;
-  };
-
   return (
     <section id="reviews" className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +16,16 @@ export default function Reviews() {
         </div>
 
         <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form 
+            action="https://formsubmit.co/harshitaggarwal865@gmail.com" 
+            method="POST" 
+            className="space-y-6"
+          >
+            {/* FormSubmit configurations */}
+            <input type="hidden" name="_subject" value="New Portfolio Review!" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="Rating" value={`${rating} Stars`} />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
