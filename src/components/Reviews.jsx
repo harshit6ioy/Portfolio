@@ -16,7 +16,7 @@ export default function Reviews() {
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRating: ${rating} Stars\n\nReview:\n${review}`);
     
     // Trigger web-based Gmail client directly! No local mail app required.
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aggarwalharshit856@gmail.com&su=New+Portfolio+Review+from+${encodeURIComponent(name)}&body=${body}`, '_blank');
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aggarwalharshit865@gmail.com&su=New+Portfolio+Review+from+${encodeURIComponent(name)}&body=${body}`, '_blank');
   };
 
   return (
