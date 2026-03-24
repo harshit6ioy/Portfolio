@@ -53,121 +53,157 @@ export default function Experience() {
     <section id="experience" className="py-16 md:py-32 bg-[var(--bg-primary)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] mb-6">
-            Background & Experience
-          </h2>
-          <div className="w-12 h-1 bg-[var(--accent)] mx-auto" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
-          {/* Training */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex items-center space-x-3 mb-8">
-              <Briefcase className="w-8 h-8 text-[var(--accent)]" />
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Training</h3>
-            </div>
-            <div className="space-y-8">
-              {training.map((item, idx) => (
-                <div key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)]">
-                  <div className="absolute w-4 h-4 bg-[var(--accent)] rounded-full -left-[9px] top-1.5" />
-                  <h4 className="text-xl font-bold text-[var(--text-primary)]">{item.role}</h4>
-                  <div className="text-sm text-[var(--text-secondary)] font-medium mb-3 mt-1">
-                    {item.company} | {item.duration}
-                  </div>
-                  <ul className="space-y-2 text-[var(--text-primary)] opacity-90">
-                    {item.bullets.map((bullet, i) => (
-                      <li key={i} className="flex leading-relaxed">
-                        <span className="mr-3 text-[var(--accent)]">—</span>
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Education */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex items-center space-x-3 mb-8">
-              <GraduationCap className="w-8 h-8 text-[var(--accent)]" />
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Education</h3>
-            </div>
-            <div className="space-y-8">
-              {education.map((item, idx) => (
-                <div key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)]">
-                  <div className="absolute w-4 h-4 bg-[var(--accent)] rounded-full -left-[9px] top-1.5" />
-                  <h4 className="text-xl font-bold text-[var(--text-primary)]">{item.degree}</h4>
-                  <div className="text-sm font-medium text-[var(--text-secondary)] mt-1">
-                    {item.institution}
-                  </div>
-                  <div className="text-sm text-[var(--text-secondary)] mb-2 font-medium opacity-80">
-                    {item.score} {item.timeline && ` | ${item.timeline}`}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Certifications & Achievements */}
-          <motion.div 
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mt-4"
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] mb-6"
           >
-            {/* Achievements */}
-            <div className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm">
-              <div className="flex items-center space-x-3 mb-8">
-                <Award className="w-6 h-6 text-[var(--accent)]" />
-                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight">Achievements</h3>
+            Background & Experience
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: "3rem" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h-1 bg-[var(--accent)] mx-auto rounded-full" 
+          />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          
+          {/* Left Column: Education & Achievements */}
+          <div className="space-y-8 md:space-y-12">
+            
+            {/* Education Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm hover:border-opacity-50 hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="p-3 bg-[var(--bg-primary)] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <GraduationCap className="w-7 h-7 text-[var(--accent)]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Education</h3>
               </div>
-              <ul className="space-y-4">
+              <div className="space-y-8">
+                {education.map((item, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)] group-hover:border-[var(--text-secondary)] transition-colors">
+                    <div className="absolute w-4 h-4 bg-[var(--accent)] rounded-full -left-[9px] top-1 shadow-[0_0_10px_var(--accent)]" />
+                    <h4 className="text-xl font-bold text-[var(--text-primary)]">{item.degree}</h4>
+                    <div className="text-[15px] font-medium text-[var(--accent)] mt-1 tracking-wide">
+                      {item.institution}
+                    </div>
+                    <div className="text-sm text-[var(--text-secondary)] mt-2 font-medium bg-[var(--bg-primary)] inline-block px-3 py-1 rounded-full border border-[var(--border-color)]">
+                      {item.score} {item.timeline && <span className="mx-1">•</span>} {item.timeline}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Achievements Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="p-3 bg-[var(--bg-primary)] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-7 h-7 text-[var(--accent)]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Achievements</h3>
+              </div>
+              <ul className="space-y-5">
                 {achievements.map((item, i) => (
-                  <li key={i} className="flex items-start text-[var(--text-primary)] font-medium leading-relaxed opacity-90">
-                    <span className="text-[var(--accent)] mr-3">—</span>
+                  <li key={i} className="flex items-start text-[var(--text-primary)] font-medium leading-relaxed opacity-90 p-4 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--accent)] transition-colors">
+                    <span className="text-[var(--accent)] mr-4 text-xl leading-none">•</span>
                     {item}
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Training & Certifications */}
+          <div className="space-y-8 md:space-y-12 mt-8 lg:mt-16">
             
-            {/* Certifications */}
-            <div className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm">
-              <div className="flex items-center space-x-3 mb-8">
-                <Award className="w-6 h-6 text-[var(--accent)]" />
-                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-tight">Certifications</h3>
+            {/* Training Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="p-3 bg-[var(--bg-primary)] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="w-7 h-7 text-[var(--accent)]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Training</h3>
+              </div>
+              <div className="space-y-8">
+                {training.map((item, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-[var(--border-color)] group-hover:border-[var(--text-secondary)] transition-colors">
+                    <div className="absolute w-4 h-4 bg-[var(--accent)] rounded-full -left-[9px] top-1 shadow-[0_0_10px_var(--accent)]" />
+                    <h4 className="text-xl font-bold text-[var(--text-primary)]">{item.role}</h4>
+                    <div className="text-[15px] text-[var(--accent)] font-medium mt-1 tracking-wide">
+                      {item.company}
+                    </div>
+                    <div className="text-sm text-[var(--text-secondary)] mt-2 mb-4 font-medium bg-[var(--bg-primary)] inline-block px-3 py-1 rounded-full border border-[var(--border-color)]">
+                      {item.duration}
+                    </div>
+                    <ul className="space-y-3 text-[var(--text-primary)] opacity-90 mt-2 bg-[var(--bg-primary)] p-4 rounded-2xl border border-[var(--border-color)]">
+                      {item.bullets.map((bullet, i) => (
+                        <li key={i} className="flex leading-relaxed text-sm lg:text-base">
+                          <span className="mr-3 text-[var(--accent)] font-bold">›</span>
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Certifications Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-[var(--bg-secondary)] rounded-3xl p-8 md:p-10 border border-[var(--border-color)] shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="p-3 bg-[var(--bg-primary)] rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-7 h-7 text-[var(--accent)]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">Certifications</h3>
               </div>
               <ul className="space-y-4 text-[var(--text-primary)] opacity-90">
                 {certifications.map((item, i) => (
-                  <li key={i} className="flex items-start font-medium leading-relaxed">
-                    <span className="text-[var(--accent)] mr-3">—</span>
+                  <li key={i} className="flex items-center p-4 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--accent)] transition-all duration-300 hover:translate-x-1">
+                    <span className="text-[var(--accent)] mr-4 text-xl leading-none">•</span>
                     {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] underline decoration-[var(--border-color)] underline-offset-4 transition-colors">
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-[var(--accent)] transition-colors w-full flex justify-between items-center">
                         {item.name}
+                        <span className="text-[var(--text-secondary)] text-xs ml-2 border border-[var(--border-color)] px-2 py-1 rounded-md">View</span>
                       </a>
                     ) : (
-                      item.name
+                      <span className="font-medium">{item.name}</span>
                     )}
                   </li>
                 ))}
               </ul>
-            </div>
-            
-          </motion.div>
+            </motion.div>
 
+          </div>
         </div>
       </div>
     </section>
